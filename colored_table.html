@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Student Table</title>
+    <style>
+        *{
+            font-family:'Times New Roman', Times, serif
+
+        }
+        body{
+            background-color:rgb(208, 245, 154);
+            text-align: center;
+        }
+        h1{
+            padding: 10px;
+            text-align: center;
+            font-weight: bolder;
+        }
+        table{
+            border: solid 2px black;
+            margin: auto;
+        }
+        th{
+            padding: 10px;
+            font-weight: bolder;
+            font-size: larger;
+        }
+        td{
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        Student Table
+    </h1>
+    <table>
+        <tr>
+            <th>SIC</th>
+            <th>NAME</th>
+            <th>EMAIL</th>
+            <th>PHONE</th>
+            <th>BRANCH</th>
+
+        </tr>
+        <tr>
+            <td>20bcea75</td>
+            <td>Ayush Bisoyi</td>
+            <td>Ayush@gamil.com</td>
+            <td>8999841811</td>
+            <td>AI</td>
+        </tr>
+        <tr>
+            <td>20bceb50</td>
+            <td>Chirag Chintan</td>
+            <td>chiragchintan@gmail.com</td>
+            <td>8917596115</td>
+            <td>CEN</td>
+        </tr>
+        <tr>
+            <td>20ecec72</td>
+            <td>Asir Bachhan</td>
+            <td>asirbachan@yahoo.in</td>
+            <td>977715744</td>
+            <td>BCOM</td>
+        </tr>
+        <tr>
+            <td>20bcse58</td>
+            <td>Rajat Kumar</td>
+            <td>Rajat@gmail.com</td>
+            <td>8917575061</td>
+            <td>CSE</td>
+        </tr>
+    </table>
+    <br>
+</body>
+<script>
+    const table = document.getElementsByTagName('table')[0];
+    table.rows[0].style.backgroundColor = "white";
+    table.rows[1].style.backgroundColor = "green";
+    table.rows[2].style.backgroundColor = "yellow";
+    table.rows[3].style.backgroundColor = "blue";
+    table.rows[4].style.backgroundColor = "red";
+
+    document.write('The Contents of even cell are:-<br><br>');
+
+    for(let i=0;i<table.rows.length;i++)
+    {
+        for(let j=0;j<table.rows[0].cells.length;j++)
+        {
+            if(i%2 == 0 && j%2 == 0)
+            {
+                document.write(`Cell(${i},${j}) - ${table.rows[i].cells[j].innerText}<br>`);
+            }
+
+        }
+    }
+</script>
+</html>

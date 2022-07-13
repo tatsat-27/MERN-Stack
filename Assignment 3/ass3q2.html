@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ass3q2</title>
+</head>
+<body>
+    <script>
+        let arr = [];
+        let n = Number(prompt('Enter the length of the array :'));
+        let e;
+        for(i=0; i<n; i++){
+        e = Number(prompt(`Enter ${i}th element : `));
+        arr.push(e);
+        }
+        console.log(`array : ${arr}`);
+        const Avg = (arr) =>
+        {
+            let ctr = 0;
+            let sum = 0;
+            for(let i = 0; i<arr.length; i++)
+            {
+                if(arr[i]<0)
+                {
+                    sum = sum+arr[i];
+                    ctr++; 
+                }
+            }
+        return(sum/ctr);
+        }
+        const res = Avg(arr); 
+        console.log(`Average: ${res}`)
+    </script>
+</body>
+</html>

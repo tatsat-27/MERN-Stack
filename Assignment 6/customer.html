@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Customer</title>
+</head>
+<body>
+    <script>
+
+function item_detail(cust_product_name,cust_product_price)
+{
+    return{
+        product_name: cust_product_name,
+        product_price: cust_product_price 
+    }
+    
+}
+function purchase(cust_dop,cust_item_details,cust_no_of_products)
+{
+    return{
+        date_of_purchase: cust_dop,
+        item_detail: cust_item_details,
+        no_of_products: cust_no_of_products
+    }
+}
+function customer(cust_name, cust_email,cust_phone,cust_shop_freq,cust_purchase)
+{
+    return{
+        name: cust_name,
+        email: cust_email,
+        phone: cust_phone,
+        shop_freq: cust_shop_freq,
+        purchase: cust_purchase
+    }
+}
+let customer_list=[];
+let purchase_list=[];
+let item_list=[];
+for(let i=0;i<1;i++)
+{
+    let name = prompt(`For customer number ${i+1}\nEnter name`);
+    let email = prompt(`Enter email-id`);
+    let phone = prompt(`Enter phone number`);
+    let shop_freq = Number(prompt(`Enter number of times ${name} has shopped`));
+
+    for(let j=0;j<shop_freq;j++){
+        let date_of_purchase = prompt(`For purchase ${j+1}, enter date of purchase`);
+        let no_of_products = Number(prompt(`For purchase ${j+1}, enter number of products purchased`));
+        
+        for(let k=0;k<no_of_products;k++)
+        {
+            let product_name = prompt(`Enter product name ${k+1}`);
+            let product_price = Number(prompt(`Enter price of ${product_name}`));
+            item_list.push(item_detail(product_name,product_price));
+        }
+        purchase_list.push(purchase(date_of_purchase,item_list,no_of_products));
+    }
+    customer_list.push(customer(name,email,phone,shop_freq,purchase_list));
+}
+console.log(customer_list);
+
+console.log(`Names of customers who have shopped more than 5 times are:`);
+for(i=0;i<5;i++)
+{
+    if(customer_list[i].shop_freq>5)
+    {
+        console.log(customer_list[i].name);
+    }
+}
+console.log(`The total shopping each customer has done is:\n `);
+for(i=0;i<5;i++)
+{
+    let sum = 0;
+    console.log(`${customer_list[i].name}: `);
+    for(j=0;j<customer_list[i].shop_freq;j++)
+    {
+        for(k=0;k<customer_list[i].purchase[j].no_of_products;k++)
+        {
+            sum = sum + customer_list[i].purchase[j].item_detail[k].product_price;
+        }
+    }
+    console.log(sum);
+}
+
+    </script>
+</body>
+</html>
